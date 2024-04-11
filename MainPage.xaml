@@ -1,117 +1,262 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="final_work.MainPage">
-    <Grid BackgroundColor="#232133" Padding="10">
+<ContentPage
+    x:Class="final_work.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Grid Padding="10" BackgroundColor="#232133">
 
-       
+
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-            <ScrollView VerticalScrollBarVisibility="Never">
-            <VerticalStackLayout Spacing="5" Padding="5" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0">
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <VerticalStackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                Padding="5"
+                HorizontalOptions="Center"
+                Spacing="5"
+                VerticalOptions="Center">
 
-                <Label x:Name="playerTurnEntry"  FontSize="70" TextColor="DeepPink" VerticalOptions="Center" HorizontalOptions="Center"/>
-                <!--border around the tik-tak-toe board-->
-                <Border WidthRequest="660"
-                        HeightRequest="660"
-                        Padding="16,8"
-                        StrokeShape="RoundRectangle 20,20,20,20"
-                        StrokeThickness="18"
-                        BackgroundColor="#191825">
+                <Label
+                    x:Name="playerTurnEntry"
+                    FontSize="70"
+                    HorizontalOptions="Center"
+                    TextColor="DeepPink"
+                    VerticalOptions="Center" />
+                <!--  border around the tik-tak-toe board  -->
+                <Border
+                    Padding="16,8"
+                    BackgroundColor="#191825"
+                    HeightRequest="660"
+                    StrokeShape="RoundRectangle 20,20,20,20"
+                    StrokeThickness="18"
+                    WidthRequest="660">
                     <Border.Stroke>
-                        <LinearGradientBrush EndPoint="0,1" x:Name="myBorder">
-                            <GradientStop Color="Cyan"
-                          Offset="0" />
-                            <GradientStop Color="DeepPink"
-                          Offset="1" />
+                        <LinearGradientBrush x:Name="myBorder" EndPoint="0,1">
+                            <GradientStop Offset="0" Color="Cyan" />
+                            <GradientStop Offset="1" Color="DeepPink" />
                         </LinearGradientBrush>
                     </Border.Stroke>
-                    
-                    <!--Grid for board layout-->
-                    <Grid ColumnSpacing="10" RowSpacing="10" VerticalOptions="Center" HorizontalOptions="Center">
+
+                    <!--  Grid for board layout  -->
+                    <Grid
+                        ColumnSpacing="10"
+                        HorizontalOptions="Center"
+                        RowSpacing="10"
+                        VerticalOptions="Center">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <!--Button layout-->
-                        <Button BackgroundColor="#865DFF" Grid.Row="0" Grid.Column="0" Clicked="Button_Clicked" 
-                                FontSize="200" WidthRequest="190" HeightRequest="190" x:Name="button1" TextColor="#191825"/>
-                        <Button BackgroundColor="#865DFF" Grid.Row="0" Grid.Column="1" Clicked="Button_Clicked" 
-                                FontSize="200" WidthRequest="190" HeightRequest="190" x:Name="button2" TextColor="#191825"/>
-                        <Button BackgroundColor="#865DFF" Grid.Row="0" Grid.Column="2" Clicked="Button_Clicked" 
-                                FontSize="200" WidthRequest="190" HeightRequest="190" x:Name="button3" TextColor="#191825"/>
+                        <!--  Button layout  -->
+                        <Button
+                            x:Name="button1"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            BackgroundColor="#865DFF"
+                            Clicked="Button_Clicked"
+                            FontSize="200"
+                            HeightRequest="190"
+                            TextColor="#191825"
+                            WidthRequest="190" />
+                        <Button
+                            x:Name="button2"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BackgroundColor="#865DFF"
+                            Clicked="Button_Clicked"
+                            FontSize="200"
+                            HeightRequest="190"
+                            TextColor="#191825"
+                            WidthRequest="190" />
+                        <Button
+                            x:Name="button3"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            BackgroundColor="#865DFF"
+                            Clicked="Button_Clicked"
+                            FontSize="200"
+                            HeightRequest="190"
+                            TextColor="#191825"
+                            WidthRequest="190" />
 
-                        <Button BackgroundColor="#865DFF" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked" 
-                                FontSize="200" WidthRequest="190" HeightRequest="190" x:Name="button4" TextColor="#191825"/>
-                        <Button BackgroundColor="#865DFF" Grid.Row="1" Grid.Column="1" Clicked="Button_Clicked" 
-                                FontSize="200" WidthRequest="190" HeightRequest="190" x:Name="button5" TextColor="#191825"/>
-                        <Button BackgroundColor="#865DFF" Grid.Row="1" Grid.Column="2" Clicked="Button_Clicked" 
-                                FontSize="200" WidthRequest="190" HeightRequest="190" x:Name="button6" TextColor="#191825"/>
+                        <Button
+                            x:Name="button4"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            BackgroundColor="#865DFF"
+                            Clicked="Button_Clicked"
+                            FontSize="200"
+                            HeightRequest="190"
+                            TextColor="#191825"
+                            WidthRequest="190" />
+                        <Button
+                            x:Name="button5"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            BackgroundColor="#865DFF"
+                            Clicked="Button_Clicked"
+                            FontSize="200"
+                            HeightRequest="190"
+                            TextColor="#191825"
+                            WidthRequest="190" />
+                        <Button
+                            x:Name="button6"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            BackgroundColor="#865DFF"
+                            Clicked="Button_Clicked"
+                            FontSize="200"
+                            HeightRequest="190"
+                            TextColor="#191825"
+                            WidthRequest="190" />
 
-                        <Button BackgroundColor="#865DFF" Grid.Row="2" Grid.Column="0" Clicked="Button_Clicked" 
-                                FontSize="200" WidthRequest="190" HeightRequest="190" x:Name="button7" TextColor="#191825"/>
-                        <Button BackgroundColor="#865DFF" Grid.Row="2" Grid.Column="1" Clicked="Button_Clicked" 
-                                FontSize="200" WidthRequest="190" HeightRequest="190" x:Name="button8" TextColor="#191825"/>
-                        <Button BackgroundColor="#865DFF" Grid.Row="2" Grid.Column="2" Clicked="Button_Clicked" 
-                                FontSize="200" WidthRequest="190" HeightRequest="190" x:Name="button9" TextColor="#191825"/>
+                        <Button
+                            x:Name="button7"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            BackgroundColor="#865DFF"
+                            Clicked="Button_Clicked"
+                            FontSize="200"
+                            HeightRequest="190"
+                            TextColor="#191825"
+                            WidthRequest="190" />
+                        <Button
+                            x:Name="button8"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            BackgroundColor="#865DFF"
+                            Clicked="Button_Clicked"
+                            FontSize="200"
+                            HeightRequest="190"
+                            TextColor="#191825"
+                            WidthRequest="190" />
+                        <Button
+                            x:Name="button9"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            BackgroundColor="#865DFF"
+                            Clicked="Button_Clicked"
+                            FontSize="200"
+                            HeightRequest="190"
+                            TextColor="#191825"
+                            WidthRequest="190" />
                     </Grid>
                 </Border>
-                <!--space for more stuff-->
-                <Button Text="Reset" x:Name="resetButton" Clicked="resetButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center"
-                            Background="DeepPink" TextColor="#191825" FontSize="50" WidthRequest="660" />
+                <!--  space for more stuff  -->
+                <Button
+                    x:Name="resetButton"
+                    Background="DeepPink"
+                    Clicked="resetButton_Clicked"
+                    FontSize="50"
+                    HorizontalOptions="Center"
+                    Text="Reset"
+                    TextColor="#191825"
+                    VerticalOptions="Center"
+                    WidthRequest="660" />
 
             </VerticalStackLayout>
         </ScrollView>
-        <Border Grid.Column="1" Grid.Row="0" Padding="14,6"
-                StrokeShape="RoundRectangle 20,20,20,20"
-                StrokeThickness="15"
-                BackgroundColor="#191825">
+        <Border
+            Grid.Row="0"
+            Grid.Column="1"
+            Padding="14,6"
+            BackgroundColor="#191825"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            StrokeThickness="15">
             <Border.Stroke>
                 <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="DeepPink"
-                          Offset="0" />
-                    <GradientStop Color="Cyan"
-                          Offset="1" />
+                    <GradientStop Offset="0" Color="DeepPink" />
+                    <GradientStop Offset="1" Color="Cyan" />
                 </LinearGradientBrush>
             </Border.Stroke>
-            
-            <VerticalStackLayout Grid.Column="1" Grid.Row="0" Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
-                <Label Text="Settings"  FontSize="100" FontAttributes="Bold" TextColor="DeepPink" />
+
+            <VerticalStackLayout
+                Grid.Row="0"
+                Grid.Column="1"
+                Padding="10"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="100"
+                    Text="Settings"
+                    TextColor="DeepPink" />
 
 
-                <!--Entry lines-->
-                <Label Text="First Name:" FontSize="30" TextColor="Cyan"/>
-                <Entry BackgroundColor="#865DFF" FontSize="30" TextColor="#191825" x:Name="NameEntry"/>
-                
-                <Label Text="Last Name:" FontSize="30" TextColor="Cyan"/>
-                <Entry BackgroundColor="#865DFF" FontSize="30" TextColor="#191825" x:Name="LastNameEntry"/>
-                
-                <Label Text="Birth Year:" FontSize="30" TextColor="Cyan" />
-                <Entry BackgroundColor="#865DFF" FontSize="30" TextColor="#191825" x:Name="BirthYearEntry"/>
+                <!--  Entry lines  -->
+                <Label
+                    FontSize="30"
+                    Text="First Name:"
+                    TextColor="Cyan" />
+                <Entry
+                    x:Name="NameEntry"
+                    BackgroundColor="#865DFF"
+                    FontSize="30"
+                    TextColor="#191825" />
 
-                <Button BackgroundColor="DeepPink" FontSize="40" Text="Save" TextColor="#191825" Clicked="SaveButton_Clicked"/>
+                <Label
+                    FontSize="30"
+                    Text="Last Name:"
+                    TextColor="Cyan" />
+                <Entry
+                    x:Name="LastNameEntry"
+                    BackgroundColor="#865DFF"
+                    FontSize="30"
+                    TextColor="#191825" />
 
-                <!--Option for human or AI-->
+                <Label
+                    FontSize="30"
+                    Text="Birth Year:"
+                    TextColor="Cyan" />
+                <Entry
+                    x:Name="BirthYearEntry"
+                    BackgroundColor="#865DFF"
+                    FontSize="30"
+                    TextColor="#191825" />
 
-                <Label Text="Play versus:" FontSize="30" TextColor="Cyan"/>
-                <RadioButton Content="Player" FontSize="30" TextColor="Cyan"
-                     IsChecked="true" VerticalOptions="Start" HorizontalOptions="Start"/>
-                <RadioButton Content="AI" CheckedChanged="AIButton_Clicked" x:Name="AIButton" FontSize="30" TextColor="Cyan"
-                             VerticalOptions="Start" HorizontalOptions="Start" />
+                <Button
+                    BackgroundColor="DeepPink"
+                    Clicked="SaveButton_Clicked"
+                    FontSize="40"
+                    Text="Save"
+                    TextColor="#191825" />
 
-                
+                <!--  Option for human or AI  -->
+
+                <Label
+                    FontSize="30"
+                    Text="Play versus:"
+                    TextColor="Cyan" />
+                <RadioButton
+                    Content="Player"
+                    FontSize="30"
+                    HorizontalOptions="Start"
+                    IsChecked="true"
+                    TextColor="Cyan"
+                    VerticalOptions="Start" />
+                <RadioButton
+                    x:Name="AIButton"
+                    CheckedChanged="AIButton_Clicked"
+                    Content="AI"
+                    FontSize="30"
+                    HorizontalOptions="Start"
+                    TextColor="Cyan"
+                    VerticalOptions="Start" />
+
+
             </VerticalStackLayout>
         </Border>
     </Grid>

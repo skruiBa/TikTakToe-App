@@ -27,11 +27,24 @@ public partial class MainPage : ContentPage
         string filePath = AppDomain.CurrentDomain.BaseDirectory;
         string fileCombine = Path.Combine(filePath, "playerdata.json");
 
-        string json = File.ReadAllText(fileCombine);
-        List<userInfo> users = JsonSerializer.Deserialize<List<userInfo>>(json);
-        users.Clear();
-        string emptyJson = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(fileCombine, emptyJson);
+        if (!File.Exists(fileCombine))
+        {
+            // Create a new empty list of userInfo objects
+            List<userInfo> users = new List<userInfo>();
+
+            // Serialize the list to JSON and write it to the file
+            string emptyJson = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(fileCombine, emptyJson);
+        }
+        else
+        {
+            // Read the existing data
+            string json = File.ReadAllText(fileCombine);
+            List<userInfo> users = JsonSerializer.Deserialize<List<userInfo>>(json);
+            users.Clear();
+            string emptyJson = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(fileCombine, emptyJson);
+        }
 
     }
     public void AIButton_Clicked(object sender, EventArgs e)
